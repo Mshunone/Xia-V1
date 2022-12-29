@@ -52,7 +52,7 @@ module.exports = {
           break
       }
       m.exp = 0
-      m.limit = false
+      m.limit = true
       m.money = false
       m.spin = false
       m.uangkau = false
@@ -63,7 +63,7 @@ module.exports = {
           if (!isNumber(user.exp)) user.exp = 0
           if (! isNumber(user.spin)) user.spin = 10
           if (! isNumber(user.money)) user.money = 1000
-          if (!isNumber(user.limit)) user.limit = 1000
+          if (!isNumber(user.limit)) user.limit = 35
           if (!user.acc) user.acc = false
           if (!user.acc) user.end = false
           if (!isNumber(user.lastclaim)) user.lastclaim = 0
@@ -106,7 +106,7 @@ module.exports = {
           if(!('staff' in user)) user.staff = false
         } else global.db.data.users[m.sender] = {
           exp: 0,
-          limit: 1000,
+          limit: 35,
           money: 1000,
           spin: 10,
           hoki: 1,
@@ -662,17 +662,17 @@ conn.ws.on('CB:call', async function callUpdatePushToDb(json) {
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintah ini hanya dapat digunakan oleh _*Real Owner*_',
-    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
+    rowner: 'Perintah ini Khusus Untuk _*Devloper*_',
+    owner: 'Perintah ini Khusus Untuk _*Owner Bot*_!',
     mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
+    premium: 'Perintah ini untuk User Premium _*Maka nya Buy*_ !',
     group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    police: 'Perintah ini hanya untuk Police Bot', 
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    ban: 'Maaf kamu sedang di banned', 
+    private: 'Cht Bot klo Mau Makek fitur ini! -_-',
+    police: 'Perintah ini hanya untuk Police Bot^0^', 
+    admin: 'Member Kadang Kadang Hanya *Admin* grup Dek!-_-',
+    ban: 'Gomen kamu sedang di banned ^-^', 
     botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
-    unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*'
+    unreg: 'Daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Saxia.16*'
   }[type]
   if (msg) return m.reply(msg)
   }
